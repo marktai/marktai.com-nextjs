@@ -5,15 +5,25 @@ import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
+import clsx from 'clsx'
+import { League_Spartan } from 'next/font/google'
+
+const leagueSpartan = League_Spartan({
+  weight: '400',
+  style: 'normal',
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 const Header = () => {
-  let headerClass = 'flex items-center w-full bg-white dark:bg-gray-950 justify-between py-10'
-  if (siteMetadata.stickyNav) {
-    headerClass += ' sticky top-0 z-50'
-  }
-
   return (
-    <header className={headerClass}>
+    <header
+      className={clsx(
+        'flex w-full items-center justify-between rounded-b-[20px] border-b-1 bg-white p-10 lg:h-[124] dark:bg-gray-950',
+        siteMetadata.stickyNav && 'sticky top-0 z-50',
+        leagueSpartan.className
+      )}
+    >
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center justify-between">
           <div className="mr-3">
