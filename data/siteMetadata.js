@@ -6,7 +6,7 @@ const siteMetadata = {
   description: 'My home on the internet',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://www.marktai.com',
+  siteUrl: 'https://blog.marktai.com',
   siteRepo: 'https://github.com/marktai/marktai.com-nextjs',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/mark-tai-tie.png`,
   email: 'mark@marktai.com',
