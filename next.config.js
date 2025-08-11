@@ -54,7 +54,6 @@ const securityHeaders = [
   },
 ]
 
-const output = process.env.EXPORT ? 'standalone' : undefined
 const basePath = process.env.BASE_PATH || undefined
 const unoptimized = process.env.UNOPTIMIZED ? true : undefined
 
@@ -64,7 +63,7 @@ const unoptimized = process.env.UNOPTIMIZED ? true : undefined
 module.exports = () => {
   const plugins = [withContentlayer, withBundleAnalyzer]
   return plugins.reduce((acc, next) => next(acc), {
-    output,
+    output: 'standalone',
     basePath,
     reactStrictMode: true,
     trailingSlash: false,
