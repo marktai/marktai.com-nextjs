@@ -13,48 +13,57 @@ import {
 interface Tag {
   name: string
   color: string
+  hoverColor: string
   icon: IconDefinition
 }
 
 export const tags: { [key: string]: Tag } = {
   games: {
     name: 'games',
-    color: '#9BF29D',
+    color: 'bg-[#9BF29D]',
+    hoverColor: 'hover:bg-[#9BF29D]',
     icon: faDice,
   },
   diving: {
     name: 'diving',
-    color: '#91DCF2',
+    color: 'bg-[#91DCF2]',
+    hoverColor: 'hover:bg-[#91DCF2]',
     icon: faFishFins,
   },
   music: {
     name: 'music',
-    color: '#FFF080',
+    color: 'bg-[#FFF080]',
+    hoverColor: 'hover:bg-[#FFF080]',
     icon: faMusic,
   },
   parties: {
     name: 'parties',
-    color: '#F29193',
+    color: 'bg-[#FFD9B8]',
+    hoverColor: 'hover:bg-[#FFD9B8]',
     icon: faPeopleGroup,
   },
   code: {
     name: 'code',
-    color: '#FEC4FF',
+    color: 'bg-[#FEC4FF]',
+    hoverColor: 'hover:bg-[#FEC4FF]',
     icon: faLaptopCode,
   },
   cocktails: {
     name: 'cocktails',
-    color: '#FFD9B8',
+    color: 'bg-[#F29193]',
+    hoverColor: 'hover:bg-[#F29193]',
     icon: faMartiniGlassCitrus,
   },
   interviewing: {
     name: 'interviewing',
-    color: '#E0BFFF',
+    color: 'bg-[#E0BFFF]',
+    hoverColor: 'hover:bg-[#E0BFFF]',
     icon: faClipboardUser,
   },
   travel: {
     name: 'travel',
-    color: '#DAFFB5',
+    color: 'bg-[#DAFFB5]',
+    hoverColor: 'hover:bg-[#DAFFB5]',
     icon: faCompass,
   },
 }
