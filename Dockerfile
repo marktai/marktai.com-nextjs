@@ -11,10 +11,10 @@ RUN corepack enable
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager 
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
+COPY .yarn ./.yarn
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* .yarnrc.yml  ./ 
 RUN yarn set version 3.6.1 && yarn install
 COPY . .
-RUN yarn set version 3.6.1 && yarn install
 
 RUN yarn run build
 
