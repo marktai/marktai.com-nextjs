@@ -42,7 +42,7 @@ export default function Home({ posts }) {
   return (
     <div>
       <Header headerClass="">
-        <div className="hidden h-full w-[25vw] overflow-y-scroll border-l-1 border-white p-10 text-black md:block">
+        <div className="hidden h-full w-[25vw] overflow-y-hidden border-l-1 border-white p-10 text-black md:block">
           <div className={clsx('grid h-full space-y-4', `grid-rows-${orderedTags.length}`)}>
             {orderedTags.map((t) => {
               return (
@@ -61,7 +61,7 @@ export default function Home({ posts }) {
           </div>
         </div>
       </Header>
-      <main className="relative">
+      <main className="relative overflow-x-hidden">
         <div className="relative z-0 grid w-[100vw] grid-cols-4">
           <div className="col-span-4 md:col-span-3">
             <>
@@ -74,16 +74,16 @@ export default function Home({ posts }) {
                   const displayImage = images && images.length > 0 ? images[0] : null
 
                   return (
-                    <li key={slug} className="p-10">
-                      <article>
-                        <div className="">
+                    <li key={slug} className="p-2 sm:p-4 lg:p-10">
+                      <article className="w-full flex justify-center">
+                        <div className="w-full max-w-[1000px]">
                           <div className="space-y-5 xl:col-span-3">
                             <div className="space-y-6">
                               <div>
                                 <Link
                                   href={`/blog/${slug}`}
                                   className={clsx(
-                                    'grid-rows grid space-y-2 rounded-[40px] p-10 font-bold tracking-tight text-gray-900 hover:text-gray-900 dark:text-gray-100',
+                                    'grid-rows grid space-y-2 rounded-[20px] sm:rounded-[40px] font-bold tracking-tight text-gray-900 hover:text-gray-900 dark:text-gray-100 p-2 sm:p-4 lg:p-10',
                                     tagMatch
                                       ? `${tagMatch.hoverColor}`
                                       : 'dark:hover:text-gray-000 hover:text-gray-900'
@@ -103,11 +103,11 @@ export default function Home({ posts }) {
                                       </Bleed>
                                     </div>
                                   ) : null}
-                                  <div className={clsx('text-[40px]', delaGothicOne.className)}>
+                                  <div className={clsx('text-[20px] md:text-[40px]', delaGothicOne.className)}>
                                     {title}
                                   </div>
                                   {subtitle ? (
-                                    <div className={clsx('text-[32px]', leagueSpartan.className)}>
+                                    <div className={clsx('text-[16px] md:text-[32px]', leagueSpartan.className)}>
                                       {subtitle}
                                     </div>
                                   ) : null}
@@ -117,7 +117,25 @@ export default function Home({ posts }) {
                                     </div>
                                   ) : null}
 
-                                  <dl className="text-base leading-6 font-medium text-gray-500 dark:text-gray-400">
+                                  <dl className="flex flex-row items-center text-base leading-6 font-medium text-gray-500 dark:text-gray-400">
+                                    {
+                                      tagMatch ? (
+                                        <>
+                                          <div className="block md:hidden inline">
+                                            <div
+                                              className={clsx(
+                                                'flex items-center justify-center rounded-[20px] p-2 w-fit',
+                                                `${tagMatch.color}`
+                                              )}
+                                            >
+                                              <FontAwesomeIcon icon={tagMatch.icon} className="h-4 text-black overflow-visible" />
+                                            </div>
+                                          </div>
+                                          <div className="block md:hidden inline px-2">•</div>
+                                        </>
+                                      ) : null
+                                    }
+                                   
                                     {authors ? (
                                       <>
                                         <dt className="sr-only inline">Author</dt>

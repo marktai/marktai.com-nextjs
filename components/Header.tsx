@@ -28,7 +28,7 @@ const Header = ({
     <div className="h-[124px]">
       <header
         className={clsx(
-          'fixed top-0 z-20 flex h-[124px] w-full items-center justify-between rounded-b-[20px] border-b-1 p-10',
+          'fixed top-0 z-20 flex h-[80px] md:h-[124px] w-full items-center justify-between rounded-b-[20px] border-b-1 p-10',
           leagueSpartan.className,
           headerClass || 'bg-white dark:bg-gray-950'
         )}
@@ -74,7 +74,7 @@ const Header = ({
         </div>
       </header>
       {children ? (
-        <div className="fixed top-[124px] right-0 z-20 h-[calc(100vh-124px)]">{children}</div>
+        <div className="fixed top-[80px] md:top-[124px] right-0 z-20 h-[calc(100vh-80px)] md:h-[calc(100vh-124px)]">{children}</div>
       ) : null}
     </div>
   )
