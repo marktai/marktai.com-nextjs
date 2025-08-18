@@ -75,7 +75,7 @@ export default function Home({ posts }) {
 
                   return (
                     <li key={slug} className="p-2 sm:p-4 lg:p-10">
-                      <article className="w-full flex justify-center">
+                      <article className="flex w-full justify-center">
                         <div className="w-full max-w-[1000px]">
                           <div className="space-y-5 xl:col-span-3">
                             <div className="space-y-6">
@@ -83,7 +83,7 @@ export default function Home({ posts }) {
                                 <Link
                                   href={`/blog/${slug}`}
                                   className={clsx(
-                                    'grid-rows grid space-y-2 rounded-[20px] sm:rounded-[40px] font-bold tracking-tight text-gray-900 hover:text-gray-900 dark:text-gray-100 p-2 sm:p-4 lg:p-10',
+                                    'grid-rows grid space-y-2 rounded-[20px] p-2 font-bold tracking-tight text-gray-900 hover:text-gray-900 sm:rounded-[40px] sm:p-4 lg:p-10 dark:text-gray-100',
                                     tagMatch
                                       ? `${tagMatch.hoverColor}`
                                       : 'dark:hover:text-gray-000 hover:text-gray-900'
@@ -103,11 +103,21 @@ export default function Home({ posts }) {
                                       </Bleed>
                                     </div>
                                   ) : null}
-                                  <div className={clsx('text-[20px] md:text-[40px]', delaGothicOne.className)}>
+                                  <div
+                                    className={clsx(
+                                      'text-[20px] md:text-[40px]',
+                                      delaGothicOne.className
+                                    )}
+                                  >
                                     {title}
                                   </div>
                                   {subtitle ? (
-                                    <div className={clsx('text-[16px] md:text-[32px]', leagueSpartan.className)}>
+                                    <div
+                                      className={clsx(
+                                        'text-[16px] md:text-[32px]',
+                                        leagueSpartan.className
+                                      )}
+                                    >
                                       {subtitle}
                                     </div>
                                   ) : null}
@@ -118,24 +128,25 @@ export default function Home({ posts }) {
                                   ) : null}
 
                                   <dl className="flex flex-row items-center text-base leading-6 font-medium text-gray-500 dark:text-gray-400">
-                                    {
-                                      tagMatch ? (
-                                        <>
-                                          <div className="block md:hidden inline">
-                                            <div
-                                              className={clsx(
-                                                'flex items-center justify-center rounded-[20px] p-2 w-fit',
-                                                `${tagMatch.color}`
-                                              )}
-                                            >
-                                              <FontAwesomeIcon icon={tagMatch.icon} className="h-4 text-black overflow-visible" />
-                                            </div>
+                                    {tagMatch ? (
+                                      <>
+                                        <div className="block inline md:hidden">
+                                          <div
+                                            className={clsx(
+                                              'flex w-fit items-center justify-center rounded-[20px] p-2',
+                                              `${tagMatch.color}`
+                                            )}
+                                          >
+                                            <FontAwesomeIcon
+                                              icon={tagMatch.icon}
+                                              className="h-4 overflow-visible text-black"
+                                            />
                                           </div>
-                                          <div className="block md:hidden inline px-2">•</div>
-                                        </>
-                                      ) : null
-                                    }
-                                   
+                                        </div>
+                                        <div className="block inline px-2 md:hidden">•</div>
+                                      </>
+                                    ) : null}
+
                                     {authors ? (
                                       <>
                                         <dt className="sr-only inline">Author</dt>
